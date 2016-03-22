@@ -36,7 +36,7 @@ class siswa {
           die('Query Error: '.$mysqli->errno.'-'.$mysqli->error);
         }
 
-        // jalan query: execute
+        // jalankan query: execute
         $stmt->execute();
 
         // ambil hasil query
@@ -67,11 +67,6 @@ class siswa {
         // membuka koneksi ke database
         $mysqli = $db->connect();
 
-        $nis          = $mysqli->real_escape_string($nis);
-        $nama         = $mysqli->real_escape_string($nama);
-        $tempat_lahir = $mysqli->real_escape_string($tempat_lahir);
-        $alamat       = $mysqli->real_escape_string($alamat);
-
         // sql statement untuk insert data ke tabel is_siswa
         $query = "INSERT INTO is_siswa(nis, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, agama, alamat, no_telepon) 
                   VALUES (?,?,?,?,?,?,?,?)";
@@ -82,7 +77,7 @@ class siswa {
         // hubungkan "data" dengan prepared statements
         $stmt->bind_param("ssssssss", $nis, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat, $no_telepon);
 
-        // jalan query: execute
+        // jalankan query: execute
         $stmt->execute();
 
         // cek hasil query
@@ -127,7 +122,7 @@ class siswa {
         // hubungkan "data" dengan prepared statements
         $stmt->bind_param("s", $nis);
 
-        // jalan query: execute
+        // jalankan query: execute
         $stmt->execute(); 
 
         // ambil hasil query
@@ -155,10 +150,6 @@ class siswa {
         // membuka koneksi ke database
         $mysqli = $db->connect();
 
-        $nama         = $mysqli->real_escape_string($nama);
-        $tempat_lahir = $mysqli->real_escape_string($tempat_lahir);
-        $alamat       = $mysqli->real_escape_string($alamat);
-
         // sql statement untuk update data ke tabel is_siswa
         $query = "UPDATE is_siswa SET nama          = ?,
                                       tempat_lahir  = ?,
@@ -174,7 +165,7 @@ class siswa {
         // hubungkan "data" dengan prepared statements
         $stmt->bind_param("ssssssss", $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $agama, $alamat, $no_telepon, $nis);
 
-        // jalan query: execute
+        // jalankan query: execute
         $stmt->execute();
 
         // cek hasil query
@@ -213,7 +204,7 @@ class siswa {
         // hubungkan "data" dengan prepared statements
         $stmt->bind_param("s", $nis);
 
-        // jalan query: execute
+        // jalankan query: execute
         $stmt->execute();
 
         // cek hasil query
